@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo wall</title>
+    <style>
+        img{
+            width:100%;
+            max-width:600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Photo Wall</h1>
+    <form method="post" action="/api/upload" enctype="multipart/form-data">
+        <label for="author">Your name</label>
+        <input id="author" name="author" />
+        <label for="file">File</label>
+        <input id="file" name="file" type="file" />
+        <input type="submit">Upload</input>
+    </form>
+
+    {{#each posts}}
+        <div>
+            <p>{{this.author}} posted:</p>
+            <img src="/uploads/{{this.filePath}}" alt="A picture posted by {(this.author)}" />
+        </div>
+    {{/each}}
+</body>
+</html>
