@@ -3,6 +3,12 @@ var express = require("express");
 var cookieParser = require("cookie-parser");
 var path = require("path");
 
+/**
+ * Azure storage config
+ */
+process.env.STORAGE_ACCOUNT_NAME = ''
+process.env.STORAGE_CONTAINER_NAME = ''
+
 var apiResponses = require("./helpers/api-response");
 var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api");
